@@ -1,6 +1,6 @@
 %YAML 1.1
 ---
-# Snapcraft Recipe for [Project]
+# Snapcraft Recipe for Open Syobon Action (オープンしょぼんのアクション)
 # ------------------------------
 # This file is in the YAML data serialization format:
 # http://yaml.org
@@ -13,68 +13,52 @@
 #   https://forum.snapcraft.io/c/doc
 # For support refer to the snapcraft section in the Snapcraft Forum:
 # https://forum.snapcraft.io/c/snapcraft
-
-# All following comments, including this one, are designed to be stripped
-# before contributing the recipe to the upstream
-
-# [Project], my-awesome-app, my-awesome-app-launch
-# are placeholders text meant to be replaced by appropriate content
-name: my-awesome-app
-title: My Awesome App.
-summary: Single-line elevator pitch for your amazing snap under 79 chars.
+name: open-syobon-action
+title: Open Syobon Action (オープンしょぼんのアクション)
+summary: An open-source cross-platform port of the unforgiving Japanese platformer
 description: |
-  This is my-awesome-app's description. You have a paragraph or two to tell
-  the most important story about your snap. Keep it under 100 words though,
-  we live in tweetspace and your description wants to look good in the snap
-  store.
+  Open Syobon Action (オープンしょぼんのアクション) is an open-source cross-platform port of the unforgiving Japanese platformer using SDL.
 
-  This is the demonstration app of the Snapcrafters Template Plus:
-  https://github.com/Lin-Buo-Ren/snapcrafters-template-plus
+  It is also called "Shobon no Action," "Neko Mario," "Cat Mario," or "Cat MeOUCHio."
 
-# The path of icon to represent the snap, relative to the source tree directory
-# Only PNG or SVG image is supported, dimension must be greater than 256x256px
-icon: snap/gui/my-awesome-app.png
+  Notes
+  -----
+  * Rather than just playing this game by yourself, it is much more enjoyable to let someone who's never tried it before try playing the game.
+  * Those who are under 12 years old are not allowed to play.
+  * Please be aware that by playing this game, there is a possibility that you may develop trust issues towards other humans.
+  * Please be aware that there is a possibility of getting stressed out while playing this game.
+  * If any problems are caused by this game, please understand that the developers cannot take any responsibility.
+  * If you wish to distribute this game to a large amount of people, please give credit to the original developer, Chiku (ちく).
+  * The game's text is entirely in Japanese, but you do not need to understand the Japanese language in order to play.
 
-# The license of this application, in SPDX format
-# NOTE: Currently only supports SPDX 2.1 license expressions, as described in Appendix IV of
-# https://spdx.org/spdx-specification-21-web-version
-# Supported expressions:
-# https://github.com/snapcore/snapd/blob/HEAD/spdx/licenses.go
-#license:
+  Controls (Keyboard)
+  -------------------
+  * Left/Right: Move
+  * Z or Up: Jump
+  * Space: Double-speed
+  * 0 (while in-game): Self-destruction
+  * Escape: Exit
+  * F1: Return to title screen
+  * 1-9 (while at the title screen): Select level
+  * 0 at the title screen: Mystery Dungeon (there is a possibility that some bugs may occur)
 
-# Version string just for humans, typically '1.2+git' or '1.3.2'
-# The wrapping single quotes are often required to avoid the version string
-# being accidentally interpreted as a YAML non-string(like '1', '1.2').
-# http://yaml.org/type
-# https://arp242.net/weblog/yaml_probably_not_so_great_after_all.html#surprising-behaviour
-# NOTE: This key is mutual exclusive with the `adopt-info` key
-#version: determined-by-version-script
+  Bugs
+  ----
+  Please report any bugs at the snap's issue tracker: https://github.com/Lin-Buo-Ren/OpenSyobonAction-snap/issues
 
-# Extract metadata from the main snap part
-# https://forum.snapcraft.io/t/extracting-information-from-sources-in-snapcraft-parts/4642
+  This snap is maintained by the Snapcrafters community and is not endorsed or officially maintained by the upstream developers.
+
+  Command Line Arguments
+  ----------------------
+  `-nosound` - Disables sound
+
+icon: snap/gui/open-syobon-action.png
 adopt-info: main
 
-# Base runtime
-# The common runtime for the snap to run on, or `bare` for static linked applications
 base: core18
-
-# Security confinement
-# Use `devmode` to getting started
-# Flip to `strict` once you have the right plugs and slots,
-# or `classic` once you determine that strict confinement is not currently possible
 confinement: strict
-
-# Snap Grade
-# Use `devel` to getting started
-# Flip to `stable` once you determine that the snap is matured, only `stable` grade
-# snaps can be promoted to `candidate` and `stable` channels
 grade: stable
 
-# Run `snapcraft help sources` for supported keywords on pulling a part's source ingredients
-# Run `snapcraft plugins` for supported build helper plugins
-# Run `snapcraft help plugins` for supported keywords on building a part
-# For `override-*` scriptlets used to modify behavior of certain part's lifecycle phase, check out:
-# https://docs.snapcraft.io/scriptlets/4892
 parts:
   # Files to patch the files in the snap
   patching:
@@ -126,39 +110,39 @@ parts:
 
   # Remote part for support of various desktop technologies
   # Refer: https://github.com/ubuntu/snapcraft-desktop-helpers/blob/master/snapcraft.yaml
-  desktop-gnome-platform:
-    source: https://github.com/ubuntu/snapcraft-desktop-helpers.git
-    source-depth: 1
-    source-subdir: gtk
+  #desktop-gnome-platform:
+    #source: https://github.com/ubuntu/snapcraft-desktop-helpers.git
+    #source-depth: 1
+    #source-subdir: gtk
 
-    plugin: make
-    build-packages:
-    - build-essential
-    - libgtk-3-dev
-    override-build: |
-      snapcraftctl build
-      mkdir -pv $SNAPCRAFT_PART_INSTALL/gnome-platform
+    #plugin: make
+    #build-packages:
+    #- build-essential
+    #- libgtk-3-dev
+    #override-build: |
+      #snapcraftctl build
+      #mkdir -pv $SNAPCRAFT_PART_INSTALL/gnome-platform
 
   # Optional auxiliary part for displaying simple dialogs for better user experience, powered by Zenity
   # https://forum.snapcraft.io/t/the-zenity-remote-part/8793
-  zenity:
-    source: https://gitlab.gnome.org/GNOME/zenity.git
-    source-tag: 3.28.1
-    source-depth: 1
-    plugin: autotools
-    configflags:
-    - --datarootdir=/snap/$SNAPCRAFT_PROJECT_NAME/current/share
-    - --disable-libnotify
-    - --disable-webkitgtk
-    build-packages:
-    - gnome-pkg-tools
-    - gnome-common
-    - yelp-tools
-    - gettext
-    - libglib2.0-dev
-    - libgtk-3-dev
-    organize:
-      snap/$SNAPCRAFT_PROJECT_NAME/current: /
+  #zenity:
+    #source: https://gitlab.gnome.org/GNOME/zenity.git
+    #source-tag: 3.28.1
+    #source-depth: 1
+    #plugin: autotools
+    #configflags:
+    #- --datarootdir=/snap/$SNAPCRAFT_PROJECT_NAME/current/share
+    #- --disable-libnotify
+    #- --disable-webkitgtk
+    #build-packages:
+    #- gnome-pkg-tools
+    #- gnome-common
+    #- yelp-tools
+    #- gettext
+    #- libglib2.0-dev
+    #- libgtk-3-dev
+    #organize:
+      #snap/$SNAPCRAFT_PROJECT_NAME/current: /
 
   main:
     after:
@@ -168,20 +152,82 @@ parts:
     # for override-pull script
     - scriptlets
 
-    source: .
-    #source-type:
-    #source-tag:
-    #source-depth:
+    source: https://github.com/angelXwind/OpenSyobonAction.git
+    source-tag: RC3
+    source-depth: 1
     override-pull: |
       set -o nounset
+      "$SNAPCRAFT_STAGE"/scriptlets/main-pull
+      sed -i 's/_ttf$/_ttf -lstdc++ -lm/' Makefile
 
-      "${SNAPCRAFT_STAGE}"/scriptlets/main-pull
-
-    plugin: dump
-    organize:
-      my-awesome-app: bin/
-    stage:
-    - bin/*
+    plugin: nil
+    override-build: |
+      make \
+        --jobs="${SNAPCRAFT_PARALLEL_BUILD_COUNT}"
+      install \
+        --directory \
+        "${SNAPCRAFT_PART_INSTALL}"/bin
+      cp \
+        --recursive \
+        --verbose \
+        BGM \
+        res \
+        SE \
+        SyobonAction \
+        "${SNAPCRAFT_PART_INSTALL}"/bin
+    build-packages:
+    - libsdl-gfx1.2-dev
+    - libsdl-image1.2-dev
+    - libsdl-mixer1.2-dev
+    - libsdl-ttf2.0-dev
+    - libsdl1.2-dev
+    stage-packages:
+    - libasound2
+    - libasyncns0
+    - libcaca0
+    - libflac8
+    - libfluidsynth1
+    - libfreetype6
+    - libjack-jackd2-0
+    - libjbig0
+    - libjpeg-turbo8
+    - libmad0
+    - libmikmod3
+    - libogg0
+    - libopenal1
+    - libpng16-16
+    - libpulse0
+    - libsdl-gfx1.2-5
+    - libsdl-image1.2
+    - libsdl-mixer1.2
+    - libsdl-ttf2.0-0
+    - libsdl1.2debian
+    - libsdl2-2.0-0
+    - libslang2
+    - libsndfile1
+    - libsndio6.1
+    - libtiff5
+    - libvorbis0a
+    - libvorbisenc2
+    - libvorbisfile3
+    - libwayland-client0
+    - libwayland-cursor0
+    - libwayland-egl1
+    - libwebp6
+    - libx11-6
+    - libxau6
+    - libxcb1
+    - libxcursor1
+    - libxdmcp6
+    - libxext6
+    - libxfixes3
+    - libxi6
+    - libxinerama1
+    - libxkbcommon0
+    - libxrandr2
+    - libxrender1
+    - libxss1
+    - libxxf86vm1
 
     override-prime: |
       set \
@@ -192,60 +238,46 @@ parts:
 
       "${SNAPCRAFT_STAGE}"/patching/patch-desktop-entries.bash
 
-# Apps that are exposed by the snap package
-# If the _app_name_ is identical with the _snap_name_ it can be directly run
-# with `_snap_name_` or `snap run _snap_name_` commands, otherwise it can only be run
-# via `_snap_name_._app_name_` or `snap run _snap_name_._app_name_`
 apps:
-  my-awesome-app:
-    # The adapter to set up runtime environment at the launch of the snap
-    # NOTE: The `command-chain` property is only supported by the `full` adapter
+  open-syobon-action:
     adapter: full
-
-    # An *relative path* to an executable file root from the `prime` directory to be executed, and its command-line arguments
-    # NOTE: The right angle bracket at the beginning of the value of the `command` keyword starts a YAML folded style block scalar, refer the following spec document for more info: http://yaml.org/spec/1.2/spec.html#id2796251
-    command: bin/my-awesome-app
-
-    # The commands that are run, in order, before running the one specified by the `command` key
+    command: bin/SyobonAction
     command-chain:
-    - bin/desktop-launch
-    - bin/my-awesome-app-launch
+    - bin/open-syobon-action-launch
+    environment:
+      LD_LIBRARY_PATH: $LD_LIBRARY_PATH:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio
 
-    # If the providing part of the app. has a desktop entry, specify its path relative to the `prime` directory.
-    # If the packaging target doesn't provide a desktop entry, ignore the `desktop` key and implement a desktop entry in `/snap/gui`
-    #desktop: share/applications/my-awesome-app.desktop
-
-# Refer the following documentation for asserting interface plugs and slots in a security confined snap:
-# Interface management - doc - snapcraft.io
-# https://docs.snapcraft.io/interface-management/6154
-# Supported interfaces - doc - snapcraft.io
-# https://docs.snapcraft.io/supported-interfaces/7744
-# Non-A/C: Non-autoconnect interface
 plugs:
   # For snaps with a graphical user interface:
-  desktop:
-  desktop-legacy:
+  #desktop:
+  #desktop-legacy:
   x11:
-  unity7:
-  wayland:
+  #unity7:
+  #wayland:
+
+  # Audio output
+  pulseaudio:
+
+  # Joysticks access
+  joystick:
 
   # GNOME and Gtk runtime via content sharing
-  gnome-3-28-1804:
-    interface: content
-    target: $SNAP/gnome-platform
-    default-provider: gnome-3-28-1804
-  gtk-3-themes:
-    interface: content
-    target: $SNAP/data-dir/themes
-    default-provider: gtk-common-themes
-  icon-themes:
-    interface: content
-    target: $SNAP/data-dir/icons
-    default-provider: gtk-common-themes
-  sound-themes:
-    interface: content
-    target: $SNAP/data-dir/sounds
-    default-provider: gtk-common-themes
+  #gnome-3-28-1804:
+    #interface: content
+    #target: $SNAP/gnome-platform
+    #default-provider: gnome-3-28-1804
+  #gtk-3-themes:
+    #interface: content
+    #target: $SNAP/data-dir/themes
+    #default-provider: gtk-common-themes
+  #icon-themes:
+    #interface: content
+    #target: $SNAP/data-dir/icons
+    #default-provider: gtk-common-themes
+  #sound-themes:
+    #interface: content
+    #target: $SNAP/data-dir/sounds
+    #default-provider: gtk-common-themes
 
   # Storage access
   #home:
@@ -255,3 +287,7 @@ plugs:
   #network:
 
 #slots:
+
+layout:
+  /usr/share/alsa:
+    bind: $SNAP/usr/share/alsa

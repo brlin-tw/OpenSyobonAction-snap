@@ -7,7 +7,8 @@ set \
 	-o nounset \
 	-o pipefail
 
-#export IMPORTANT_ENVIRONMENT_VARIABLE=value
+# The game requires running from executable directory
+cd "${SNAP}"/bin
 
 # Finally run the next part of the command chain
 exec "${@}"

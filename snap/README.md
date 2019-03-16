@@ -1,14 +1,14 @@
-# Unofficial Snap Packaging for [Project]
+# Unofficial Snap Packaging for Open Syobon Action (オープンしょぼんのアクション)
 <!--
 	Use the Staticaly service for easy access to in-repo pictures:
 	https://www.staticaly.com/
 -->
-![(Placeholder) Icon of [Project]](https://cdn.staticaly.com/gh/Lin-Buo-Ren/snapcrafters-template-plus/bea3bc56/snap/gui/my-awesome-app.png "(Placeholder) Icon of [Project]")
+![(Placeholder) Icon of Open Syobon Action (オープンしょぼんのアクション)](gui/open-syobon-action.png "(Placeholder) Icon of Open Syobon Action (オープンしょぼんのアクション)")
 
-**This is the unofficial snap for [Project]**, *"Single-line elevator pitch for your amazing snap"*. It works on Ubuntu, Fedora, Debian, and other major Linux distributions.
+**This is the unofficial snap for [Open Syobon Action (オープンしょぼんのアクション)](https://github.com/angelXwind/OpenSyobonAction)**, *"An open-source cross-platform port of the unforgiving Japanese platformer"*. It works on Ubuntu, Fedora, Debian, and other major Linux distributions.
 
 <!-- Uncomment and modify this when you are provided a build status badge
-[![Build Status Badge of the `my-awesome-app` Snap](https://build.snapcraft.io/badge/_repo_owner_id_/_repo_name_id_.svg "Build Status of the `my-awesome-app` snap")](https://build.snapcraft.io/user/_repo_owner_id_/_repo_name_id_)
+[![Build Status Badge of the `open-syobon-action` Snap](https://build.snapcraft.io/badge/Lin-Buo-Ren/OpenSyobonAction-snap.svg "Build Status of the `open-syobon-action` snap")](https://build.snapcraft.io/user/Lin-Buo-Ren/OpenSyobonAction-snap)
 -->
 
 <!-- Uncomment and modify this when you have a screenshot
@@ -23,38 +23,33 @@ Published for <img src="http://anything.codes/slack-emoji-for-techies/emoji/tux.
 
 ### In a Terminal
     # Install the snap #
-    sudo snap install --channel=edge --devmode my-awesome-app
-    #sudo snap install --channel=beta my-awesome-app
-    #sudo snap install my-awesome-app
-    
-    # Connect the snap to essential security confinement interfaces #
-    ## (Proper reasoning for connecting _plug_name_) ##
-    sudo snap connect my-awesome-app:_plug_name_
-    
+    sudo snap install --channel=edge --devmode open-syobon-action
+    #sudo snap install --channel=beta open-syobon-action
+    #sudo snap install open-syobon-action
+
     # Connect the snap to optional security confinement interfaces #
-    ## (Proper reasoning for connecting _plug_name_) ##
-    sudo snap connect my-awesome-app:_plug_name_
+    ## Allow the game to access your joysticks ##
+    sudo snap connect open-syobon-action:joystick
     
-    # Launch the application #
-    my-awesome-app
-    snap run my-awesome-app # If you have another existing installation
+    # Launch the game #
+    open-syobon-action
+    snap run open-syobon-action # If you have another existing installation
 
 ### The Graphical Way
-[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/my-awesome-app)
+[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/open-syobon-action)
 -->
 
-<!-- Uncomment when you have test results
 ## What is Working
-* [A list of functionallities that are verified working]
+* Launch game
+* Sound
+* Killed
+* Switch levels
 
 ## What is NOT Working...yet 
-Check out the [issue tracker](https://github.com/_repo_owner_id_/_repo_name_id_/issues) for known issues.
--->
+Check out the [issue tracker](https://github.com/Lin-Buo-Ren/OpenSyobonAction-snap/issues) for known issues.
 
-<!-- Uncomment when you have initialized the URLs
 ## Support
 * Report issues regarding using this snap to the issue tracker:  
-  <https://github.com/_repo_owner_id_/_repo_name_id_/issues>
+  <https://github.com/Lin-Buo-Ren/OpenSyobonAction-snap/issues>
 * You may also post on the Snapcraft Forum, under the `snap` topic category:  
   <https://forum.snapcraft.io/c/snap>
--->
