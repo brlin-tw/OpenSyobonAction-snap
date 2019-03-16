@@ -1,0 +1,13 @@
+The japanese locale seems to be unnecessary.
+
+--- parts/main/src/DxLib.cpp	2019-03-16 12:02:20.621786135 +0800
++++ parts/main/build/DxLib.cpp	2019-03-16 12:11:30.823905360 +0800
+@@ -8,7 +8,7 @@
+ int DxLib_Init()
+ {
+     atexit(deinit);
+-    setlocale(LC_CTYPE, "ja_JP.UTF-8");
++    setlocale(LC_ALL, "");
+ 
+     if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
+ 	fprintf(stderr, "Unable to init SDL: %s\n", SDL_GetError());

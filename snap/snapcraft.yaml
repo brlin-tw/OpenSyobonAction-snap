@@ -89,27 +89,6 @@ parts:
     prime:
     - -*
 
-  # Stage snap for fixing the glibc locales(and gnu gettext I18N support)
-  # This part is only required for non GUI apps that don't uses the desktop-launch launchers
-  #locales-launch:
-    #plugin: nil
-    #stage-snaps:
-    #- locales-launch
-    #stage-packages:
-    # For localedef(1)
-    #- libc-bin
-
-    # For locale data used by localedef(1)
-    #- locales
-
-    # All pre-generated locale data
-    # DISABLED: Lots of duplicate data will be included in snap when this is staged, unless the target machine has no resource to generate them in runtime otherwise not using it
-    #
-    #   Lack of compiled locales breaks gettext based localisation - snapcraft - snapcraft.io
-    #   https://forum.snapcraft.io/t/lack-of-compiled-locales-breaks-gettext-based-localisation/3758
-    #
-    #- locales-all
-
   # Remote part for support of various desktop technologies
   # Refer: https://github.com/ubuntu/snapcraft-desktop-helpers/blob/master/snapcraft.yaml
   #desktop-gnome-platform:
@@ -167,6 +146,9 @@ parts:
       patch \
         --strip=3 \
         < "${SNAPCRAFT_STAGE}"/patching/fix-linking-failure.patch
+      patch \
+        --strip=3 \
+        < "${SNAPCRAFT_STAGE}"/patching/avoid-hardcoding-locale.patch
       make \
         --jobs="${SNAPCRAFT_PARALLEL_BUILD_COUNT}"
       install \
@@ -241,6 +223,8 @@ apps:
     command-chain:
     - bin/open-syobon-action-launch
     environment:
+      LANG: C.UTF-8
+      LC_ALL: C.UTF-8
       LD_LIBRARY_PATH: $LD_LIBRARY_PATH:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio
 
 plugs:
