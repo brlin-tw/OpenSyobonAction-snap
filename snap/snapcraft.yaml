@@ -44,12 +44,14 @@ description: |
 
   Bugs
   ----
+
   Please report any bugs at the snap's issue tracker: https://github.com/Lin-Buo-Ren/OpenSyobonAction-snap/issues
 
   This snap is maintained by the Snapcrafters community and is not endorsed or officially maintained by the upstream developers.
 
   Command Line Arguments
   ----------------------
+
   `-nosound` - Disables sound
 
 icon: snap/gui/open-syobon-action.png
