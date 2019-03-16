@@ -7,9 +7,7 @@
 
 **This is the unofficial snap for [Open Syobon Action (オープンしょぼんのアクション)](https://github.com/angelXwind/OpenSyobonAction)**, *"An open-source cross-platform port of the unforgiving Japanese platformer"*. It works on Ubuntu, Fedora, Debian, and other major Linux distributions.
 
-<!-- Uncomment and modify this when you are provided a build status badge
 [![Build Status Badge of the `open-syobon-action` Snap](https://build.snapcraft.io/badge/Lin-Buo-Ren/OpenSyobonAction-snap.svg "Build Status of the `open-syobon-action` snap")](https://build.snapcraft.io/user/Lin-Buo-Ren/OpenSyobonAction-snap)
--->
 
 ![Screenshot of the Snapped Application](local/screenshots/title-screen.png "Screenshot of the Snapped Application")
 
