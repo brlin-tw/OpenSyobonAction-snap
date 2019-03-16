@@ -42,6 +42,7 @@ Published for <img src="http://anything.codes/slack-emoji-for-techies/emoji/tux.
 * Self-destruction
 * Mystery Dungeon
 * Reconsider life choices
+* Level 1~3 playthrough
 
 ## What is NOT Working...yet 
 Check out the [issue tracker](https://github.com/Lin-Buo-Ren/OpenSyobonAction-snap/issues) for known issues.
