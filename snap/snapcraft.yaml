@@ -160,10 +160,13 @@ parts:
     override-pull: |
       set -o nounset
       "$SNAPCRAFT_STAGE"/scriptlets/main-pull
-      sed -i 's/_ttf$/_ttf -lstdc++ -lm/' Makefile
 
     plugin: nil
     override-build: |
+      set -o nounset
+      patch \
+        --strip=3 \
+        < "${SNAPCRAFT_STAGE}"/patching/fix-linking-failure.patch
       make \
         --jobs="${SNAPCRAFT_PARALLEL_BUILD_COUNT}"
       install \

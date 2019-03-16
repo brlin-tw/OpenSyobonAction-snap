@@ -1,0 +1,13 @@
+It seems that the build will fail due to lacking linker flags.
+
+This patch is made by John Lenton(@chipaca).
+
+--- parts/main/src/Makefile	2019-03-16 03:09:41.419271705 +0000
++++ parts/main/build/Makefile	2019-03-16 03:09:44.555239429 +0000
+@@ -1,5 +1,5 @@
+ SyobonAction:main.o loadg.o DxLib.o
+-	gcc main.o loadg.o DxLib.o -o SyobonAction `sdl-config --libs` -lSDL_gfx -lSDL_image -lSDL_mixer -lSDL_ttf
++	gcc main.o loadg.o DxLib.o -o SyobonAction `sdl-config --libs` -lSDL_gfx -lSDL_image -lSDL_mixer -lSDL_ttf -lstdc++ -lm
+ main.o:main.cpp
+ 	gcc -c main.cpp
+ loadg.o:loadg.cpp
