@@ -89,42 +89,6 @@ parts:
     prime:
     - -*
 
-  # Remote part for support of various desktop technologies
-  # Refer: https://github.com/ubuntu/snapcraft-desktop-helpers/blob/master/snapcraft.yaml
-  #desktop-gnome-platform:
-    #source: https://github.com/ubuntu/snapcraft-desktop-helpers.git
-    #source-depth: 1
-    #source-subdir: gtk
-
-    #plugin: make
-    #build-packages:
-    #- build-essential
-    #- libgtk-3-dev
-    #override-build: |
-      #snapcraftctl build
-      #mkdir -pv $SNAPCRAFT_PART_INSTALL/gnome-platform
-
-  # Optional auxiliary part for displaying simple dialogs for better user experience, powered by Zenity
-  # https://forum.snapcraft.io/t/the-zenity-remote-part/8793
-  #zenity:
-    #source: https://gitlab.gnome.org/GNOME/zenity.git
-    #source-tag: 3.28.1
-    #source-depth: 1
-    #plugin: autotools
-    #configflags:
-    #- --datarootdir=/snap/$SNAPCRAFT_PROJECT_NAME/current/share
-    #- --disable-libnotify
-    #- --disable-webkitgtk
-    #build-packages:
-    #- gnome-pkg-tools
-    #- gnome-common
-    #- yelp-tools
-    #- gettext
-    #- libglib2.0-dev
-    #- libgtk-3-dev
-    #organize:
-      #snap/$SNAPCRAFT_PROJECT_NAME/current: /
-
   main:
     after:
     # For code patches
@@ -240,33 +204,6 @@ plugs:
 
   # Joysticks access
   joystick:
-
-  # GNOME and Gtk runtime via content sharing
-  #gnome-3-28-1804:
-    #interface: content
-    #target: $SNAP/gnome-platform
-    #default-provider: gnome-3-28-1804
-  #gtk-3-themes:
-    #interface: content
-    #target: $SNAP/data-dir/themes
-    #default-provider: gtk-common-themes
-  #icon-themes:
-    #interface: content
-    #target: $SNAP/data-dir/icons
-    #default-provider: gtk-common-themes
-  #sound-themes:
-    #interface: content
-    #target: $SNAP/data-dir/sounds
-    #default-provider: gtk-common-themes
-
-  # Storage access
-  #home:
-  #removable-media: # Non-A/C
-
-  # Network access
-  #network:
-
-#slots:
 
 layout:
   /usr/share/alsa:
