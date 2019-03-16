@@ -148,7 +148,7 @@ parts:
 
   main:
     after:
-    # for patch-desktop-entries.*
+    # For code patches
     - patching
 
     # for override-pull script
@@ -233,15 +233,6 @@ parts:
     - libxrender1
     - libxss1
     - libxxf86vm1
-
-    override-prime: |
-      set \
-        -o errexit \
-        -o nounset
-
-      snapcraftctl prime
-
-      "${SNAPCRAFT_STAGE}"/patching/patch-desktop-entries.bash
 
 apps:
   open-syobon-action:
