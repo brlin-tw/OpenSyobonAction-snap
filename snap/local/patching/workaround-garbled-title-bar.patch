@@ -1,0 +1,18 @@
+This patch drops the Japanese title from the window title bar as it will be displayed garbled in Fedora somehow.
+
+Also prepend "Open" to it to match the distribution.
+
+Refer-to: Japanese in the title bar are displayed garbled in Fedora · Issue #3 · Lin-Buo-Ren/OpenSyobonAction-snap <https://github.com/Lin-Buo-Ren/OpenSyobonAction-snap/issues/3>
+Signed-off-by: 林博仁(Buo-ren, Lin) <Buo.Ren.Lin@gmail.com>
+
+--- parts/main/src/DxLib.cpp	2019-03-17 19:10:59.761114965 +0800
++++ parts/main/src/DxLib.cpp	2019-03-17 19:11:47.538097674 +0800
+@@ -24,7 +24,7 @@
+ 	return -1;
+     }
+ 
+-    SDL_WM_SetCaption("Syobon Action (しょぼんのアクション)",
++    SDL_WM_SetCaption("Open Syobon Action",
+ 		      NULL);
+     SDL_ShowCursor(SDL_DISABLE);
+ 

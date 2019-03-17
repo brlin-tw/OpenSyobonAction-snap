@@ -113,6 +113,9 @@ parts:
       patch \
         --strip=3 \
         < "${SNAPCRAFT_STAGE}"/patching/avoid-hardcoding-locale.patch
+      patch \
+        --strip=3 \
+        < "${SNAPCRAFT_STAGE}"/patching/workaround-garbled-title-bar.patch
       make \
         --jobs="${SNAPCRAFT_PARALLEL_BUILD_COUNT}"
       install \
