@@ -165,7 +165,3 @@ plugs:
 
   # Joysticks access
   joystick:
-
-layout:
-  /usr/share/alsa:
-    bind: $SNAP/usr/share/alsa
