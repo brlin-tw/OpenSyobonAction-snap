@@ -18,9 +18,8 @@ Published for <img src="http://anything.codes/slack-emoji-for-techies/emoji/tux.
 
 ### In a Terminal
     # Install the snap #
-    sudo snap install --channel=beta open-syobon-action
-    #sudo snap install open-syobon-action
-
+    sudo snap install open-syobon-action
+    
     # Connect the snap to optional security confinement interfaces #
     ## Allow the game to access your joysticks ##
     sudo snap connect open-syobon-action:joystick
