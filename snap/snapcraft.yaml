@@ -21,8 +21,8 @@ description: |
 
   It is also called "Shobon no Action," "Neko Mario," "Cat Mario," or "Cat MeOUCHio."
 
-  Notes
-  -----
+  **Notes**
+
   * Rather than just playing this game by yourself, it is much more enjoyable to let someone who's never tried it before try playing the game.
   * Those who are under 12 years old are not allowed to play.
   * Please be aware that by playing this game, there is a possibility that you may develop trust issues towards other humans.
@@ -31,8 +31,8 @@ description: |
   * If you wish to distribute this game to a large amount of people, please give credit to the original developer, Chiku (ちく).
   * The game's text is entirely in Japanese, but you do not need to understand the Japanese language in order to play.
 
-  Controls (Keyboard)
-  -------------------
+  **Controls (Keyboard)**
+
   * Left/Right: Move
   * Z or Up: Jump
   * Space: Double-speed
@@ -42,15 +42,13 @@ description: |
   * 1-9 (while at the title screen): Select level
   * 0 at the title screen: Mystery Dungeon (there is a possibility that some bugs may occur)
 
-  Bugs
-  ----
+  **Bugs**
 
   Please report any bugs at the snap's issue tracker: https://github.com/Lin-Buo-Ren/OpenSyobonAction-snap/issues
 
   This snap is maintained by the Snapcrafters community and is not endorsed or officially maintained by the upstream developers.
 
-  Command Line Arguments
-  ----------------------
+  **Command Line Arguments**
 
   `-nosound` - Disables sound
 
