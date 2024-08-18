@@ -134,6 +134,10 @@ parts:
       - libsdl-ttf2.0-dev
       - libsdl1.2-dev
     stage-packages:
+      - freeglut3
+      - libgl1
+      - libglu1-mesa
+      - libglx0
       - libpulse0
       - libsdl-gfx1.2-5
       - libsdl-image1.2
