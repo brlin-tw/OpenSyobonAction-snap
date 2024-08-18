@@ -115,6 +115,7 @@ parts:
         --strip=3 \
         < "${SNAPCRAFT_STAGE}/patching/workaround-garbled-title-bar.patch"
       patch < "${SNAPCRAFT_STAGE}/patching/DxLib_manual_deadzone.patch"
+      patch < "${SNAPCRAFT_STAGE}/patching/support-dpad-controls.patch"
       make \
         --jobs="${SNAPCRAFT_PARALLEL_BUILD_COUNT}"
       install \

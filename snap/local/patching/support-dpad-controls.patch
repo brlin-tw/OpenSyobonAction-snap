@@ -1,0 +1,22 @@
+This patch addes dpad controls to the application, allow more accurate
+controls.
+
+--- DxLib.orig.cpp	2024-08-19 06:51:54.385035267 +0800
++++ DxLib.cpp	2024-08-19 06:57:24.013002626 +0800
+@@ -157,6 +157,16 @@
+ 		}
+ 	    }
+ 	    break;
++	case SDL_JOYHATMOTION:
++		if(event.jhat.value & SDL_HAT_UP) keysHeld[SDLK_UP] = true;
++		else keysHeld[SDLK_UP] = false;
++		if(event.jhat.value & SDL_HAT_LEFT) keysHeld[SDLK_LEFT] = true;
++		else keysHeld[SDLK_LEFT] = false;
++		if(event.jhat.value & SDL_HAT_RIGHT) keysHeld[SDLK_RIGHT] = true;
++		else keysHeld[SDLK_RIGHT] = false;
++		if(event.jhat.value & SDL_HAT_DOWN) keysHeld[SDLK_DOWN] = true;
++		else keysHeld[SDLK_DOWN] = false;
++		break;
+ 	case SDL_QUIT:
+ 	    ex = true;
+ 	    break;
