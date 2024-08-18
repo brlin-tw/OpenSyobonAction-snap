@@ -166,7 +166,7 @@ plugs:
   #wayland:
 
   # Audio output
-  pulseaudio:
+  audio-playback:
 
   # Joysticks access
   joystick:
