@@ -100,25 +100,25 @@ parts:
     source-depth: 1
     override-pull: |
       set -o nounset
-      "$SNAPCRAFT_STAGE"/scriptlets/main-pull
+      "$SNAPCRAFT_STAGE/scriptlets/main-pull"
 
     plugin: nil
     override-build: |
       set -o nounset
       patch \
         --strip=3 \
-        < "${SNAPCRAFT_STAGE}"/patching/fix-linking-failure.patch
+        < "${SNAPCRAFT_STAGE}/patching/fix-linking-failure.patch"
       patch \
         --strip=3 \
-        < "${SNAPCRAFT_STAGE}"/patching/avoid-hardcoding-locale.patch
+        < "${SNAPCRAFT_STAGE}/patching/avoid-hardcoding-locale.patch"
       patch \
         --strip=3 \
-        < "${SNAPCRAFT_STAGE}"/patching/workaround-garbled-title-bar.patch
+        < "${SNAPCRAFT_STAGE}/patching/workaround-garbled-title-bar.patch"
       make \
         --jobs="${SNAPCRAFT_PARALLEL_BUILD_COUNT}"
       install \
         --directory \
-        "${SNAPCRAFT_PART_INSTALL}"/bin
+        "${SNAPCRAFT_PART_INSTALL}/bin"
       cp \
         --recursive \
         --verbose \
@@ -126,7 +126,7 @@ parts:
         res \
         SE \
         SyobonAction \
-        "${SNAPCRAFT_PART_INSTALL}"/bin
+        "${SNAPCRAFT_PART_INSTALL}/bin"
     build-packages:
     - libsdl-gfx1.2-dev
     - libsdl-image1.2-dev
