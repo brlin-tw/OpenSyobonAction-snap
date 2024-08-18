@@ -152,19 +152,9 @@ apps:
     command: bin/SyobonAction
     command-chain:
       - bin/open-syobon-action-launch
-    environment:
-      LANG: C.UTF-8
-      LC_ALL: C.UTF-8
-      LD_LIBRARY_PATH: $LD_LIBRARY_PATH:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio
+    extensions: [gnome-3-28]
 
 plugs:
-  # For snaps with a graphical user interface:
-  #desktop:
-  #desktop-legacy:
-  x11:
-  #unity7:
-  #wayland:
-
   # Audio output
   audio-playback:
 
