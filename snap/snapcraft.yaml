@@ -67,7 +67,7 @@ parts:
     organize:
       '*': patching/
     prime:
-    - -*
+      - -*
 
   # Launcher programs to fix problems at runtime
   launchers:
@@ -76,7 +76,7 @@ parts:
     organize:
       '*': bin/
     stage:
-    - -bin/README.*
+      - -bin/README.*
 
   # Programs to modify the behavior of each step of the snapcraft lifecycles
   scriptlets:
@@ -85,15 +85,15 @@ parts:
     organize:
       '*': scriptlets/
     prime:
-    - -*
+      - -*
 
   main:
     after:
-    # For code patches
-    - patching
+      # For code patches
+      - patching
 
-    # for override-pull script
-    - scriptlets
+      # for override-pull script
+      - scriptlets
 
     source: https://github.com/angelXwind/OpenSyobonAction.git
     source-tag: RC3
@@ -128,26 +128,26 @@ parts:
         SyobonAction \
         "${SNAPCRAFT_PART_INSTALL}/bin"
     build-packages:
-    - libsdl-gfx1.2-dev
-    - libsdl-image1.2-dev
-    - libsdl-mixer1.2-dev
-    - libsdl-ttf2.0-dev
-    - libsdl1.2-dev
+      - libsdl-gfx1.2-dev
+      - libsdl-image1.2-dev
+      - libsdl-mixer1.2-dev
+      - libsdl-ttf2.0-dev
+      - libsdl1.2-dev
     stage-packages:
-    - libpulse0
-    - libsdl-gfx1.2-5
-    - libsdl-image1.2
-    - libsdl-mixer1.2
-    - libsdl-ttf2.0-0
-    - libsdl1.2debian
-    - libslang2
+      - libpulse0
+      - libsdl-gfx1.2-5
+      - libsdl-image1.2
+      - libsdl-mixer1.2
+      - libsdl-ttf2.0-0
+      - libsdl1.2debian
+      - libslang2
 
 apps:
   open-syobon-action:
     adapter: full
     command: bin/SyobonAction
     command-chain:
-    - bin/open-syobon-action-launch
+      - bin/open-syobon-action-launch
     environment:
       LANG: C.UTF-8
       LC_ALL: C.UTF-8
